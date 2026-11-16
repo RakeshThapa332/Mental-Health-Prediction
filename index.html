@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#101827" />
+  <title>MindMetric | Student Mental Health Predictor</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="#" aria-label="MindMetric home">
+        <span class="brand-mark">m</span>
+        <span>mind<span class="brand-light">metric</span></span>
+      </a>
+      <div class="sidebar-intro">
+        <span class="eyebrow">STUDENT WELLBEING</span>
+        <h1>Understand your digital habits.</h1>
+        <p>Explore how everyday routines relate to your predicted mental health score.</p>
+      </div>
+      <div class="side-visual" aria-hidden="true">
+        <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+        <div class="visual-core"><span>✳</span></div>
+        <span class="float-dot dot-one"></span><span class="float-dot dot-two"></span>
+        <span class="float-dot dot-three"></span>
+      </div>
+      <div class="sidebar-note">
+        <span class="note-icon">i</span>
+        <p><strong>A supportive tool, not a diagnosis.</strong><br>Use the result as an informational estimate, not a substitute for professional care.</p>
+      </div>
+      <div class="sidebar-footer">MINDMETRIC <span>•</span> STUDENT INSIGHTS</div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <div>
+          <div class="breadcrumb">Workspace <span>/</span> <strong>Assessment</strong></div>
+          <p class="topbar-caption">A quick snapshot of your lifestyle and study patterns</p>
+        </div>
+        <div class="secure-pill"><span></span> Local assessment</div>
+      </header>
+
+      <section class="page-heading">
+        <div>
+          <span class="eyebrow accent">PERSONAL INSIGHT</span>
+          <h2>Student wellbeing assessment</h2>
+          <p>Complete the details below to generate your model's predicted score.</p>
+        </div>
+        <div class="step-indicator"><span class="step-number">01</span><span>of 01<br><small>Assessment</small></span></div>
+      </section>
+
+      <div class="content-grid">
+        <form id="predictionForm" novalidate>
+          <div class="completion-card">
+            <div class="completion-topline">
+              <div>
+                <span class="eyebrow accent">ASSESSMENT PROGRESS</span>
+                <p id="completionText" aria-live="polite">1 of 12 details answered</p>
+              </div>
+              <strong id="completionPercent">8%</strong>
+            </div>
+            <div class="completion-track" id="completionProgress" role="progressbar" aria-label="Assessment completion" aria-valuemin="0" aria-valuemax="12" aria-valuenow="1">
+              <span id="completionBar"></span>
+            </div>
+            <p class="completion-hint">Your answers stay on this page until you submit them to the prediction API.</p>
+          </div>
+
+          <section class="form-card">
+            <div class="section-heading">
+              <div class="section-icon">01</div>
+              <div><h3>About you</h3><p>A few details to provide context for the prediction.</p></div>
+            </div>
+            <div class="fields-grid">
+              <label class="field"><span>Age <b>*</b></span><input name="age" type="number" min="10" max="120" value="21" required /><small>Enter your age in years.</small></label>
+              <label class="field"><span>Gender <b>*</b></span><select name="gender" required><option value="">Select gender</option><option>Male</option><option>Female</option></select></label>
+              <label class="field"><span>Country <b>*</b></span><input name="country" type="text" placeholder="e.g. Nepal" required /></label>
+              <label class="field"><span>Academic level <b>*</b></span><select name="academic_level" required><option value="">Select academic level</option><option>High School</option><option>Undergraduate</option><option>Graduate</option></select></label>
+            </div>
+          </section>
+
+          <section class="form-card">
+            <div class="section-heading">
+              <div class="section-icon">02</div>
+              <div><h3>Digital habits</h3><p>Tell us about your social media usage.</p></div>
+            </div>
+            <div class="fields-grid">
+              <label class="field"><span>Most-used platform <b>*</b></span><select name="most_used_platform" required><option value="">Choose a platform</option><option>Facebook</option><option>LinkedIn</option><option>Instagram</option><option>Snapchat</option><option>Twitter</option><option>YouTube</option><option>TikTok</option><option>LINE</option><option>KakaoTalk</option><option>VKontakte</option><option>WhatsApp</option><option>WeChat</option></select></label>
+              <label class="field"><span>Main purpose of use <b>*</b></span><select name="purpose_of_use" required><option value="">Choose a purpose</option><option>Networking</option><option>Education</option><option>Entertainment</option><option>News</option></select></label>
+              <label class="field"><span>Daily usage <b>*</b></span><div class="input-suffix"><input name="avg_daily_usage_hours" type="number" min="0" max="24" step="0.1" placeholder="e.g. 4.5" required /><span>hours</span></div></label>
+              <label class="field"><span>Daily phone unlocks <b>*</b></span><input name="daily_unlocks" type="number" min="0" step="1" placeholder="e.g. 65" required /></label>
+            </div>
+          </section>
+
+          <section class="form-card">
+            <div class="section-heading">
+              <div class="section-icon">03</div>
+              <div><h3>Daily routine</h3><p>Estimate your typical day, rather than an unusual one.</p></div>
+            </div>
+            <div class="fields-grid">
+              <label class="field"><span>Study time <b>*</b></span><div class="input-suffix"><input name="study_hours" type="number" min="0" max="24" step="0.1" placeholder="e.g. 5" required /><span>hours</span></div></label>
+              <label class="field"><span>Physical activity <b>*</b></span><div class="input-suffix"><input name="physical_activity_hours" type="number" min="0" max="2" step="0.1" placeholder="e.g. 0.5" required /><span>hours</span></div><small>API currently accepts 0–2 hours.</small></label>
+              <label class="field"><span>Sleep per night <b>*</b></span><div class="input-suffix"><input name="sleep_hours_per_night" type="number" min="0" max="24" step="0.1" placeholder="e.g. 7.5" required /><span>hours</span></div></label>
+              <label class="field"><span>Perceived stress level <b>*</b></span><select name="stress_level" required><option value="">Select stress level</option><option>Low</option><option>Medium</option><option>High</option><option>Very High</option></select></label>
+            </div>
+          </section>
+
+          <div class="form-actions">
+            <p><span class="required-star">*</span> All fields are required.</p>
+            <div><button type="reset" class="btn btn-quiet" id="resetBtn">Reset form</button><button type="submit" class="btn btn-primary" id="submitBtn"><span>Generate prediction</span><span class="arrow">→</span></button></div>
+          </div>
+          <p class="form-error" id="formError" role="alert"></p>
+        </form>
+
+        <aside class="result-column">
+          <div class="result-card" id="resultCard">
+            <div class="result-topline"><span class="result-label">YOUR RESULT</span><span class="result-status" id="resultStatus">AWAITING INPUT</span></div>
+            <div class="result-placeholder" id="resultPlaceholder">
+              <div class="result-icon">✧</div>
+              <h3>Your insight starts here.</h3>
+              <p>Complete the assessment and select <strong>Generate prediction</strong> to see your model output.</p>
+              <div class="placeholder-line"></div><div class="placeholder-line short"></div>
+            </div>
+            <div class="result-output" id="resultOutput" aria-live="polite" hidden>
+              <p class="score-caption">Predicted mental health score</p>
+              <div class="score-number" id="scoreNumber">—</div>
+              <p class="score-subtitle">Generated by your trained machine learning model</p>
+              <div class="result-divider"></div>
+              <div class="result-detail"><span>Prediction status</span><strong><span class="status-dot"></span> Complete</strong></div>
+              <div class="result-detail"><span>Response source</span><strong>FastAPI model</strong></div>
+              <details class="result-disclaimer">
+                <summary>How should I interpret this score?</summary>
+                <p>The dataset's observed scores ranged from 3.6 to 9.4, but there are no validated cutoffs for rating an individual. This estimate cannot diagnose or rule out a condition—your wellbeing is more than a number. If you have concerns, consider talking with someone you trust or a qualified health professional.</p>
+              </details>
+            </div>
+            <div class="loading-state" id="loadingState" hidden><div class="spinner"></div><strong>Analyzing your responses</strong><span>Connecting to your prediction API…</span></div>
+          </div>
+          <div class="info-card">
+            <div class="info-card-icon">⌁</div>
+            <div><h4>How it works</h4><p>Your answers are sent to the FastAPI endpoint, which prepares the input features and returns a prediction from your saved model.</p></div>
+          </div>
+          <div class="privacy-note"><span>◇</span><p><strong>Be mindful of your information.</strong> Only enter information you are comfortable submitting to the API you have configured.</p></div>
+        </aside>
+      </div>
+      <footer class="page-footer">MindMetric <span>•</span> Student wellbeing prediction interface</footer>
+    </main>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
